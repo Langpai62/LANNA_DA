@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/LANNA_DA/static/css/main.0d5877c1.css",
+    "main.js": "/LANNA_DA/static/js/main.ee2ca83d.js",
+    "static/js/488.9c92ff38.chunk.js": "/LANNA_DA/static/js/488.9c92ff38.chunk.js",
+    "index.html": "/LANNA_DA/index.html",
+    "main.0d5877c1.css.map": "/LANNA_DA/static/css/main.0d5877c1.css.map",
+    "main.ee2ca83d.js.map": "/LANNA_DA/static/js/main.ee2ca83d.js.map",
+    "488.9c92ff38.chunk.js.map": "/LANNA_DA/static/js/488.9c92ff38.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0d5877c1.css",
+    "static/js/main.ee2ca83d.js"
+  ]
+}
