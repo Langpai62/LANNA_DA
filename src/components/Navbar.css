@@ -1,0 +1,56 @@
+/* Navbar.css */
+
+/* สไตล์สำหรับ container ของ navbar */
+.navbar-container {
+    background: linear-gradient(90deg, #4caf50, #81c784); /* สีพื้นหลังแบบไล่ระดับ */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้ดูหรูหรา */
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* สไตล์สำหรับรายการเมนู */
+  .navbar {
+    list-style-type: none; /* ลบจุด Bullet */
+    display: flex;
+    justify-content: center; /* จัดให้อยู่กึ่งกลาง */
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* สไตล์สำหรับรายการแต่ละรายการ */
+  .navbar li {
+    margin: 0 20px; /* ระยะห่างระหว่างเมนู */
+  }
+  
+  /* ลิงก์ของเมนู */
+  .navbar a {
+    text-decoration: none; /* ลบขีดเส้นใต้ */
+    color: white; /* สีตัวอักษร */
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px; /* ระยะด้านใน */
+    border-radius: 5px; /* ขอบมน */
+    transition: all 0.3s ease; /* เอฟเฟกต์แบบนุ่มนวล */
+  }
+  
+  /* เอฟเฟกต์เมื่อเมาส์ชี้ */
+  .navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* เพิ่มพื้นหลังโปร่งแสง */
+    color: #fff; /* สีตัวอักษรยังคงเป็นสีขาว */
+    transform: scale(1.1); /* ขยายขนาดเล็กน้อย */
+  }
+  
+  /* Responsive Design: ปรับให้เหมาะกับหน้าจอเล็ก */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column; /* เรียงเป็นแนวตั้งเมื่อหน้าจอเล็ก */
+    }
+  
+    .navbar li {
+      margin: 10px 0; /* ระยะห่างสำหรับแนวตั้ง */
+    }
+  }
+  
