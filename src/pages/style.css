@@ -1,95 +1,143 @@
-/* ใช้กับทุกหน้า */
-.page-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* ให้เนื้อหาอยู่กลางหน้าจอ */
-  padding: 20px;
-  text-align: center;
-  background-color: #f9f9f9;
+/* พื้นหลังสำหรับทุกหน้า */
+.common-background {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  padding: 50px 20px;
+  min-height: 100vh;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* จัดเนื้อหาในรูปแบบคอลัมน์ */
+/* หน้าหลัก */
+.home-container {
+  background-image: url('https://i.pinimg.com/736x/30/01/c3/3001c3db1353f35e4ff0efd9c5f74ca2.jpg');
+}
+
+/* หน้าหลักสูตร */
+.courses-container {
+  background-image: url('https://i.pinimg.com/736x/59/cf/ce/59cfcea786465c009ce38a85c6adab04.jpg');
+}
+
+/* หน้ากิจกรรม */
+.activities-container {
+  background-image: url('https://i.pinimg.com/736x/94/9b/5f/949b5f9bf628ab3ef26ace56cc0f7b34.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* หน้าติดต่อเรา */
+.contact-container {
+  background-image: url('https://i.pinimg.com/736x/a9/a7/70/a9a770234463ae83552f614e674679cd.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Style for page container */
+.page-container {
+  text-align: center;
+  margin: 20px;
+}
+
+/* Center the content of the page */
 .content-center {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* ระยะห่างระหว่างการ์ด */
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
-/* สไตล์ของการ์ด */
-.card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  width: 300px;
-  background: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Large image section */
+.large-image {
   text-align: center;
-  transition: transform 0.2s;
+  width: 80%;
+  max-width: 800px;
 }
 
-.card:hover {
-  transform: scale(1.05); /* เพิ่มเอฟเฟกต์ขยายเมื่อชี้ */
+.large-image img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Placeholder when no image is selected */
+.large-image-placeholder {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Small image thumbnails */
+.small-images {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Style for individual cards (small images) */
+.card {
+  cursor: pointer;
+  text-align: center;
+  width: 150px; /* Fixed width for uniformity */
 }
 
 .card img {
   width: 100%;
+  height: 150px;
+  object-fit: cover; /* Ensures image maintains aspect ratio */
+  margin-bottom: 10px;
   border-radius: 8px;
-  margin-bottom: 15px;
 }
 
-.card h3 {
-  margin: 10px 0 5px;
-  font-size: 18px;
+.card:hover img {
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
 }
 
-.card p {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.5;
+.card-details h4 {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 10px;
 }
 
-
-/* หน้าปกงาน */
-.home-container {
-  position: relative;
-  height: 100vh; /* เต็มหน้าจอ */
-  background: url('https://i.ytimg.com/vi/Mdy6fCgkyZg/mqdefault.jpg') no-repeat center center/cover; /* เปลี่ยนเป็นรูปจริง */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-}
-
-.overlay {
-  background: rgba(0, 0, 0, 0.6); /* เพิ่มเลเยอร์โปร่งใส */
-  padding: 40px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.overlay h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-.overlay p {
+/* Style for the details of the selected image */
+.image-details h3 {
   font-size: 1.5rem;
-  margin-bottom: 30px;
+  color: #333;
 }
 
-.btn-primary {
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.image-details p {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 10px;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
+
+/* เพิ่มขนาดให้กับตัวแสดง PDF */
+.pdf-container {
+  width: 100%;
+  max-width: 1000px; /* ปรับขนาดสูงสุด */
+  height: 600px; /* ขนาดสูงสุด */
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.course-item h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.course-item p {
+  font-size: 1rem;
+  margin-bottom: 20px;
 }

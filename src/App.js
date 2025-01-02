@@ -8,6 +8,7 @@ import Courses from "./pages/Courses";
 import Activities from "./pages/Activities";
 import Contact from "./pages/Contact";
 
+
 function App() {
   return (
     <Router>

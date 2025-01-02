@@ -1,10 +1,12 @@
 import React from "react";
+import "./style.css";
 
 function About() {
   return (
-    <div>
-      <h2>เกี่ยวกับเรา</h2>
-      <p>รายละเอียดเกี่ยวกับสาขาและประวัติความเป็นมา</p>
+    <div className="about-container">
+      <h1>เกี่ยวกับเรา</h1>
+      <p>เรามุ่งเน้นการสร้างนักเรียนที่พร้อมสำหรับโลกอนาคต</p>
+      <img src="about-image.jpg" alt="ทีมงานของเรา" className="about-image" />
     </div>
   );
 }

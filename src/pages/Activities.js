@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
 
 const Activities = () => {
+  const [selectedImage, setSelectedImage] = useState(null); // Initially no image is selected
+
   const activities = [
     {
       id: 1,
-      image: 'https://www.lannapoly.ac.th/web/gallery/20241121-100726.jpg', // เปลี่ยนเป็นรูปจริง
+      image: 'https://www.lannapoly.ac.th/web/gallery/20241121-100726.jpg',
       title: 'แสดงความยินดีต้อนรับผู้อำนวยการ นางสาวนารีรัตน์ ธจิตธรรม',
       description: 'อาจารย์วุฒิพงศ์ พวงไม้มิ่ง ผู้ช่วยรองผู้อำนวยการฝ่ายกิจการนักศึกษา พร้อมทีมงานแนะแนวการศึกษา เข้าร่วมแสดงความยินดีต้อนรับผู้อำนวยการ นางสาวนารีรัตน์ ธจิตธรรม เข้ารับตำแหน่งผู้อำนวยการโรงเรียนแม่ออนวิทยาลัย ณ หอประชุมโรงเรียนแม่ออนวิทยาลัย',
     },
@@ -23,21 +25,51 @@ const Activities = () => {
     },
   ];
 
+  const handleClick = (id) => {
+    setSelectedImage(id); // Set selected image when clicked
+  };
+
   return (
     <div className="page-container">
       <h1>กิจกรรมของวิทยาลัยโปลิเทคนิคลานนา เชียงใหม่</h1>
       <div className="content-center">
-        {activities.map((activity) => (
-          <div key={activity.id} className="card">
-            <img src={activity.image} alt={activity.title} />
-            <h3>{activity.title}</h3>
-            <p>{activity.description}</p>
+        {/* Large Image Section */}
+        {selectedImage ? (
+          <div className="large-image">
+            <img
+              src={activities.find((activity) => activity.id === selectedImage).image}
+              alt="Selected"
+            />
+            <div className="image-details">
+              <h3>{activities.find((activity) => activity.id === selectedImage).title}</h3>
+              <p>{activities.find((activity) => activity.id === selectedImage).description}</p>
+            </div>
           </div>
-        ))}
+        ) : (
+          <div className="large-image-placeholder">
+            <p>คลิกที่ภาพเพื่อดูรายละเอียด</p>
+          </div>
+        )}
+
+        {/* Small Image Thumbnails */}
+        <div className="small-images">
+          {activities.map((activity) => (
+            <div key={activity.id} className="card" onClick={() => handleClick(activity.id)}>
+              <img
+                src={activity.image}
+                alt={activity.title}
+                className="small-image"
+              />
+              <div className="card-details">
+                <h4>{activity.title}</h4>
+                {/* Initially showing only title, description appears on large image click */}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
 export default Activities;
-

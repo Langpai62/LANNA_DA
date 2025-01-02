@@ -1,37 +1,32 @@
 import React from 'react';
-import './style.css';
+import { Worker, Viewer } from '@react-pdf-viewer/core'; // PDF Viewer
+import '@react-pdf-viewer/core/lib/styles/index.css'; // Add CSS for the PDF viewer
+import { pdfjs } from 'react-pdf';
 
 const Courses = () => {
-  const courses = [
-    {
-      id: 1,
-      image: 'https://via.placeholder.com/300',
-      title: 'ช่างยนต์',
-      description: 'เรียนรู้ทักษะการซ่อมและบำรุงรักษารถยนต์ด้วยเครื่องมือที่ทันสมัย',
-    },
-    {
-      id: 2,
-      image: 'https://via.placeholder.com/300',
-      title: 'ไฟฟ้ากำลัง',
-      description: 'ฝึกทักษะเกี่ยวกับระบบไฟฟ้า การติดตั้ง และการแก้ไขปัญหาในงานอุตสาหกรรม',
-    },
-    {
-      id: 3,
-      image: 'https://via.placeholder.com/300',
-      title: 'เทคโนโลยีสารสนเทศ',
-      description: 'ศึกษาทักษะการเขียนโปรแกรม การพัฒนาเว็บไซต์ และการจัดการฐานข้อมูล',
-    },
+  // PDF file URLs for each course
+  const coursePdfs = [
+    { id: 1, title: 'การออกแบบเว็บ', pdfUrl: 'https://example.com/web-design.pdf' },
+    { id: 2, title: 'การเขียนโปรแกรม', pdfUrl: 'https://example.com/programming.pdf' },
+    { id: 3, title: 'การพัฒนาระบบฐานข้อมูล', pdfUrl: 'https://example.com/database.pdf' },
+    { id: 4, title: 'การพัฒนาแอปพลิเคชันมือถือ', pdfUrl: 'https://example.com/mobile-app.pdf' },
   ];
 
   return (
-    <div className="page-container">
-      <h1>คอร์สเรียนในวิทยาลัย</h1>
-      <div className="content-center">
-        {courses.map((course) => (
-          <div key={course.id} className="card">
-            <img src={course.image} alt={course.title} />
-            <h3>{course.title}</h3>
-            <p>{course.description}</p>
+    <div className="common-background courses-container">
+      <h1>หลักสูตรของเรา</h1>
+      <div className="course-list">
+        {coursePdfs.map((course) => (
+          <div key={course.id} className="course-item">
+            <h2>{course.title}</h2>
+            <p>รายละเอียดหลักสูตรสามารถดูได้ในไฟล์ PDF ด้านล่างนี้:</p>
+            
+            {/* PDF Viewer */}
+            <div className="pdf-container">
+              <Worker workerUrl={`https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`}>
+                <Viewer fileUrl={course.pdfUrl} />
+              </Worker>
+            </div>
           </div>
         ))}
       </div>
